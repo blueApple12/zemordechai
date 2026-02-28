@@ -66,20 +66,21 @@
     <h1>זה מורדכי</h1>
 
     <div class="container">
-        <img src="https://thispersondoesnotexist.com/" 
+        <img src="image.png" 
              id="mordechai" 
-             alt="AI Face" 
+             alt="Mordechai" 
              onclick="refreshFace()">
     </div>
 
-    <p class="refresh-hint">לחץ על התמונה כדי לראות מורדכי אחר</p>
+    <p class="refresh-hint">לחץ על התמונה כדי לרענן</p>
 
     <script>
         function refreshFace() {
             const img = document.getElementById('mordechai');
-            // Adding a timestamp to the URL forces the browser to fetch a new image
             img.classList.add('loading');
-            img.src = "https://thispersondoesnotexist.com/?" + new Date().getTime();
+            
+            // This reloads the local image.png with a cache-buster
+            img.src = "image.png?" + new Date().getTime();
             
             img.onload = function() {
                 img.classList.remove('loading');
